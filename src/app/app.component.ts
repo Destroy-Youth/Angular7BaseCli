@@ -6,6 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { DataService } from './services/data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginGuard } from './guards/login.guard';
+import { HolaMundoComponent } from './hola-mundo/hola-mundo.component';
 
 @Component({
   selector: 'app-root',
@@ -54,6 +55,11 @@ export const routes: Routes = [
     path: 'contact', 
     component: ContactComponent,
     canActivate: [LoginGuard]
+  },
+  { 
+    path: 'holamundo', 
+    component: HolaMundoComponent
+    //canActivate: [LoginGuard]
   },
   { path: '**', redirectTo: '' }
 ];

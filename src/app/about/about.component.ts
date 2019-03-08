@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ConsumeService } from '../services/consume.service';
 import { DataService} from '../services/data.service';
 
@@ -9,11 +9,15 @@ import { DataService} from '../services/data.service';
 })
 export class AboutComponent implements OnInit {
 
+    message : String;
+    recibedMessage : String;
   joke: String = "";
   constructor(private _consumeService: ConsumeService,
               private _data: DataService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+      this.message = "cosa de about";
+   }
 
   consulta(){
     this._data.setIsLoadingEvent(true);
@@ -22,6 +26,7 @@ export class AboutComponent implements OnInit {
         .subscribe((response) => {
             console.log(response);
             this.joke = response.value.joke;
+            this.message = this.joke;
             this._data.setIsLoadingEvent(false);
         },
         (err) => {

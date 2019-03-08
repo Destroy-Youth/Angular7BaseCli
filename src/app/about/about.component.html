@@ -1,5 +1,9 @@
 <div class="about-container">
   <h1>About</h1>
+
+  <app-hola-mundo [hero] = "message" (likeIt) = "recibedMessage=$event"></app-hola-mundo>
+  <h3>{{recibedMessage}}</h3>
+  
   <mat-form-field>
       <input matInput placeholder="Joke" [value]="joke">
   </mat-form-field>
